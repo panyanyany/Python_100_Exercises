@@ -1,10 +1,7 @@
-# 错误写法
+# 直接复制元素
 a = [1, 2, 3]
-b = a
+b = []
+for e in a:
+    b.append(e)
 print(id(a) == id(b), id(a), id(b))
 print(b)
-
-b.pop()
-
-print(b)
-print(a)
