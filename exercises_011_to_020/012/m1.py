@@ -19,7 +19,7 @@ def is_valid(password: str):
             has_number = True
         elif c in symbols:
             has_symbol = True
-        else:
+        else:  # 避免其他符号，比如 emoji，中文，空格等
             return False
 
     if 6 <= len(password) <= 12:

@@ -7,6 +7,7 @@ def is_valid(password: str):
     has_number = False
     has_symbol = False
     has_length = False
+    has_invalid = False
     reasons = []
 
     symbols = '`-=[]\\;\',./~!@#$%^&*()_+{}|:"<>?'
@@ -21,7 +22,7 @@ def is_valid(password: str):
         elif c in symbols:
             has_symbol = True
         else:
-            return False
+            has_invalid = True
 
     if 6 <= len(password) <= 12:
         has_length = True
@@ -36,6 +37,8 @@ def is_valid(password: str):
         reasons.append('至少包含一个特殊符号')
     if not has_length:
         reasons.append('长度要在6~12')
+    if has_invalid:
+        reasons.append('包含非法字符')
 
     return all([
         has_lower_letter,
@@ -43,6 +46,7 @@ def is_valid(password: str):
         has_number,
         has_symbol,
         has_length,
+        not has_invalid,
     ]), reasons
 
 
