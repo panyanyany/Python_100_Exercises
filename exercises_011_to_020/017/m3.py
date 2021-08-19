@@ -1,8 +1,8 @@
 import sys
 
 
-def print2(*args, sep=' ', end='\n', file=sys.stdout):
-    file.write(sep.join(args) + end)
+def print2(*args, sep=' ', end='\n', out=sys.stdout):
+    out.write(sep.join(map(str, args)) + end)
 
 
-print2('hello', 'world', file=open('out.txt', 'w+'))
+print2('hello', 'world', out=open('out.txt', 'w+'))
