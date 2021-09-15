@@ -43,4 +43,5 @@ def add_text(image_file: Path):
 
 
 for item in Path('./image').glob('*.jpg'):
+    print('正在添加水印：', item.name)
     add_text(item)
