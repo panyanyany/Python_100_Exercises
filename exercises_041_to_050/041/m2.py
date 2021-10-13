@@ -1,22 +1,10 @@
-class Student:
-    name: str
-    score: float
+l1 = [1, 2]
+l2 = [2, 3]
 
-    def __init__(self, name, score):
-        self.name = name
-        self.score = score
+# AND: 且操作符，只保留2个数组中 相同 的部分
+same = list(set(l1) & set(l2))
+# XOR: 异或操作符，只保留2个数组中 不同 的部分
+diff = list(set(l1) ^ set(l2))
 
-    def __str__(self):
-        return f'{self.name}：{self.score}分'
-
-    def __repr__(self):
-        return f'<{self.__class__.__name__}: {self.name},{self.score}分>'
-
-
-print(Student('mike', 70))
-# mike：70分
-
-
-# 在容器中调用了 __repr__
-print([Student('mike', 70), Student('john', 60)])
-# [<Student: mike,70分>, <Student: john,60分>]
+print('共有', same)
+print('不同', diff)
